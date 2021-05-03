@@ -1,0 +1,16 @@
+% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p> <a href="{% url 'MainApp:topic' topic.id %}"> {{topic}} </a></p>
+
+<p> Edit Entry </p>
+
+<form action="{% url 'MainApp:edit_entry' entry.id %}" method='post'>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button name="submit"> Save Changes </button>
+</form>
+
+{% endblock content %}
